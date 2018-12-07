@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.delete_all
 Mission.delete_all
+Category.delete_all
 
 sg = Category.create!(mission_type: 'Spiritual Growth')
 ev = Category.create!(mission_type: 'Evangelism')
@@ -26,7 +26,6 @@ Mission.create!(name: 'Do the laundry for your family (max: 10)', points: 5, cat
 Mission.create!(name: 'Learn a new dish (post a picture!)', points: 10, category: ser)
 Mission.create!(name: 'Vacuum the house (max: 10)', points: 5, category: ser)
 Mission.create!(name: 'Keep a gratitude log every day and write 10 things you are grateful for (for the whole break)', points: 100, category: ser)
-Mission.create!(name: 'Sponsor a Compassion child (ask your staff or upper classman)', points: 100, category: ser)
 
 # evangelism
 Mission.create!(name: 'Bring a non-Christian friend or family member to church', points: 50, category: ev)
@@ -39,17 +38,14 @@ Mission.create!(name: 'Read a Christian book with a non Christian friend or fami
 Mission.create!(name: 'Lead C101 with a non-Christian friend or family member', points: 200, category: ev)
 Mission.create!(name: 'Lead a bible study with a non-Christian friend or family member', points: 150, category: ev)
 
-
 # spiritual growth
-Mission.create!(name: 'Post a verse you wrote down from DT along with a 2-3 sentence sharing of how it spoke to you', points: 10, category: sg)
+Mission.create!(name: 'Do DT and post one point that spoke to you (can submit once per day)', points: 10, category: sg)
 Mission.create!(name: 'Meet up with a friend and do DT together', points: 30, category: sg)
 Mission.create!(name: 'Read through the Psalms', points: 75, category: sg)
 Mission.create!(name: 'Memorize: Psalm 103', points: 50, category: sg)
 Mission.create!(name: 'Memorize: Psalm 51', points: 50, category: sg)
 Mission.create!(name: 'Memorize: Psalm 23', points: 50, category: sg)
 Mission.create!(name: 'Memorize: Psalm 1', points: 50, category: sg)
-Mission.create!(name: 'Google Hangout with your LG and share prayer requests or DT', points: 50, category: sg)
-Mission.create!(name: 'Spend 10 minutes praying for LG, friends, and/or family', points: 10, category: sg)
 Mission.create!(name: 'Go on a prayer walk for at least 15 minutes', points: 15, category: sg)
 Mission.create!(name: 'Memorize: 100 verses every Christian should know (ask your staff)', points: 400, category: sg)
 Mission.create!(name: 'Memorize: Any hymn', points: 20, category: sg)
@@ -59,7 +55,6 @@ Mission.create!(name: 'Read through the entire Old Testament', points: 400, cate
 Mission.create!(name: 'Read through the Gospels', points: 50, category: sg)
 Mission.create!(name: 'Outline: One of the Gospels', points: 50, category: sg)
 Mission.create!(name: 'Outline: One of the Epistles', points: 30, category: sg)
-
 
 # equipping
 Mission.create!(name: 'Read "Calvary Road" (Roy Hession)', points: 30, category: equ)
@@ -93,8 +88,3 @@ Mission.create!(name: 'Exercise for at least 30 minutes (max: 10 of these entrie
 Mission.create!(name: 'Learn how to play a praise song and post a video (e.g. guitar, keyboard, etc.)', points: 20, category: equ)
 Mission.create!(name: 'Prepare a winsome and clear explanation of the Gospel in less than 2 minutes (post a video!)', points: 30, category: equ)
 Mission.create!(name: 'Run a 10K', points: 50, category: equ)
-Mission.create!(name: 'Join 7 minute workout app, add your LG and do a workout together (in person or via Google Hangout)', points: 20, category: equ)
-
-
-
-

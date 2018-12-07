@@ -4,11 +4,9 @@ class StaticPagesController < ApplicationController
       one = Comment.where(:team => "Bros").all
       two = Comment.where(:team => "Sis").all
       three = Comment.where(:team => "Staff").all
-      four = Comment.where(:team => "Misc").all
    	@oneSum = 0;
    	@twoSum = 0;
       @threeSum = 0;
-      @fourSum = 0;
 
    	one.each do |post|
    		@oneSum += post.mission.points
@@ -22,11 +20,7 @@ class StaticPagesController < ApplicationController
          @threeSum += post.mission.points
       end
 
-      four.each do |post|
-         @fourSum += post.mission.points
-      end
-
-      @points = [['Bros', @oneSum], ['Sis', @twoSum], ['Staff', @threeSum], ['Misc', @fourSum]].sort do |a, b|
+      @points = [['Bros', @oneSum], ['Sis', @twoSum], ['Staff', @threeSum]].sort do |a, b|
          b[1] <=> a[1]
       end
 
@@ -57,11 +51,9 @@ class StaticPagesController < ApplicationController
       one = Comment.where(:team => "Bros").all
       two = Comment.where(:team => "Sis").all
       three = Comment.where(:team => "Staff").all
-      four = Comment.where(:team => "Misc").all
       @oneSum = 0;
       @twoSum = 0;
       @threeSum = 0;
-      @fourSum = 0;
 
       one.each do |post|
          @oneSum += post.mission.points
@@ -75,11 +67,7 @@ class StaticPagesController < ApplicationController
          @threeSum += post.mission.points
       end
 
-      four.each do |post|
-         @fourSum += post.mission.points
-      end
-
-      @points = [['Bros', @oneSum], ['Sis', @twoSum], ['Staff', @threeSum], ['Misc', @fourSum]].sort do |a, b|
+      @points = [['Bros', @oneSum], ['Sis', @twoSum], ['Staff', @threeSum]].sort do |a, b|
          b[1] <=> a[1]
       end
 
