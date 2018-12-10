@@ -21,7 +21,7 @@ class Comment < ApplicationRecord
     },
     fog_directory: ENV["FOG_DIRECTORY"]
 
-    has_attached_file :video, styles: {:thumb => ["300", :jpg]},
+    has_attached_file :video, styles: {:thumb => ["300x300>", :jpg]},
     :processors => [:transcoder],
     :url  => ":s3_domain_url",
     :path => "public/videos/:id/:style_:basename.:extension",
