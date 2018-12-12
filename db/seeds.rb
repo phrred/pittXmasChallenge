@@ -40,7 +40,7 @@ Mission.create!(name: 'Lead a bible study with a non-Christian friend or family 
 
 # spiritual growth
 Mission.create!(name: 'Do DT and post one point that spoke to you (can submit once per day)', points: 10, category: sg)
-Mission.create!(name: 'Meet up with a friend and do DT together', points: 30, category: sg)
+Mission.create!(name: 'Meet up with a friend and do DT together (one submission per group)', points: 30, category: sg)
 Mission.create!(name: 'Read through the Psalms', points: 75, category: sg)
 Mission.create!(name: 'Memorize: Psalm 103', points: 50, category: sg)
 Mission.create!(name: 'Memorize: Psalm 51', points: 50, category: sg)
