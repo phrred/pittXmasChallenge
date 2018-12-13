@@ -55,6 +55,7 @@ Mission.create!(name: 'Read through the entire Old Testament', points: 1000, cat
 Mission.create!(name: 'Read through the Gospels', points: 50, category: sg)
 Mission.create!(name: 'Outline: One of the Gospels', points: 50, category: sg)
 Mission.create!(name: 'Outline: One of the Epistles', points: 30, category: sg)
+Mission.create!(name: 'Pray for your non-Christian family/friends for 30 minutes', points: 30, category: sg)
 
 # equipping
 Mission.create!(name: 'Read "Calvary Road" (Roy Hession)', points: 30, category: equ)
@@ -88,3 +89,4 @@ Mission.create!(name: 'Exercise for at least 30 minutes (max: 10 of these entrie
 Mission.create!(name: 'Learn how to play a praise song and post a video (e.g. guitar, keyboard, etc.)', points: 20, category: equ)
 Mission.create!(name: 'Prepare a winsome and clear explanation of the Gospel in less than 2 minutes (post a video!)', points: 30, category: equ)
 Mission.create!(name: 'Run a 10K', points: 50, category: equ)
+Mission.create!(name: 'Reach out and connect with staff over facetime/google hangouts/skype/call (not text!)', points: 10, category: equ)
