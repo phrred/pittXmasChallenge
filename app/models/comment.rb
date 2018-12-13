@@ -10,7 +10,7 @@ class Comment < ApplicationRecord
     before_validation :force_names
 
 
-	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
+	has_attached_file :avatar, styles: { medium: "100x100>", thumb: "100x100>" },
 	:url  => ":s3_domain_url",
     :path => "public/avatars/:id/:style_:basename.:extension",
     :storage => :fog,
@@ -21,7 +21,7 @@ class Comment < ApplicationRecord
     },
     fog_directory: ENV["FOG_DIRECTORY"]
 
-    has_attached_file :video, styles: {:thumb => ["300x300>", :jpg]},
+    has_attached_file :video, styles: {:thumb => ["100x100>", :jpg]},
     :processors => [:transcoder],
     :url  => ":s3_domain_url",
     :path => "public/videos/:id/:style_:basename.:extension",
