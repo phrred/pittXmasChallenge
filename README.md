@@ -43,12 +43,21 @@ gem install bundle
 bundle install
 ```
 This should take some time because to install `rails` requires many other `gems`.
+If you have issues with bootstrap-sass
+
+```
+gem uninstall bootstrap-sass
+bundle update bootstrap-sass
+bundle install
+```
 
 ### Database Setup
 To setup the database run these commands:
-```rake db:create```
-```rake db:migrate```
-```rake db:seed```
+```
+rake db:create
+rake db:migrate
+rake db:seed
+```
 
 Happy developing!
 
