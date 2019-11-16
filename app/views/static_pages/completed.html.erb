@@ -1,23 +1,17 @@
 <div class="completed-background">
 </div>
 
-<div class="container completed">
+<div class="container container--padding">
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h2>Completed Challenges</h2>
-				</div>
-				<div class="panel-body">
-					
-					<h4>
-					<% if @comments.length != 0 %>
-						Here are the list of accomplished missions so far. Browse through them to see what others have been up to during break!
-					<% else %>
-						No missions accomplished yet. Be the first to post!
-					<% end %>
-					</h4>
-				</div>
+				<h2>Completed Challenges</h2>
+				<h4>
+				<% if @comments.length != 0 %>
+					Here are the list of accomplished missions so far. Browse through them to see what others have been up to during break!
+				<% else %>
+					No missions accomplished yet. Be the first to post!
+				<% end %>
+				</h4>
 				<div class="all-comments">
 					<div class="pagination">
 					<%= will_paginate @comments %>

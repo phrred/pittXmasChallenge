@@ -1,26 +1,28 @@
 <div class="intro-header">
+    <div class="intro-header__overlay"></div>
     <div class="container">
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="intro-message">
-                    <h1>Pittsburgh Christmas Challenge</h1>
-                    <h3 class="intro-count"><i>"And let us consider how to stir up one another to love and good works." Hebrews 10:24</i></h3>
-                    <hr class="intro-divider">
-                    <ul class="list-inline intro-social-buttons">
-                        <h3 class="intro-count">
-                            <%= @winner[0] %>:
-                            <%= @winner[1] %>
-                        </h3>
+                    <div class="intro__makenew">makenew</div>
+                    <div class="intro__subtitle">Christmas Challenge</div>
+                    <div class="stats">
+                        <div class="stat stat--with-bg">
+                            <h3><%= @winner[0] %></h3>
+                            <div class="stat__count"><%= @winner[1] %></div>
+                            <div class="stat__label">Points</div>
+                        </div>
 
                         <% @points.each do |team| %>
-                            <h4 class="intro-count">
-                                <%= team[0] %>: 
-                                <%= team[1] %>
-                            </h4>   
-
+                            <div class="stat stat--with-bg">
+                                <h3><%= team[0] %></h3>
+                                <div class="stat__count"><%= team[1] %></div>
+                                <div class="stat__label">Points</div>
+                            </div>
                         <% end %>
-                    </ul>
+                    </div>
+                    <a href="" class="btn btn-primary btn-lg">Log a challenge</a>
                 </div>
             </div>
         </div>
@@ -38,16 +40,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <hr class="section-heading-spacer-center">
-                <div class="clearfix"></div>
                 <h2 class="section-heading" style="text-align:center">The Challenge</h2>
-                <p class="lead" style="text-align:center">This winter break, let's stir up one another to love and good works with some friendly competition! Complete various 'Christmas Challenges' to grow, serve others, and equip yourself, and compete with teams along the way!</p>
+                <p style="text-align:center">This winter break, let's stir up one another to love and good works with some friendly competition! Complete various 'Christmas Challenges' to grow, serve others, and equip yourself, and compete with teams along the way!</p>
             </div>
             <div class="col-lg-6">
-                <hr class="section-heading-spacer-left">
                 <div class="clearfix"></div>
                 <h2 class="section-heading">Rules</h2>
-                <ul class="lead">
+                <ul>
                     <li>
                         Challenge starts 12/7/18 and ends 1/7/19.
                     </li>
@@ -63,10 +62,9 @@
                 </ul>
             </div>
             <div class="col-lg-6">
-                <hr class="section-heading-spacer-left">
                 <div class="clearfix"></div>
                 <h2 class="section-heading">Prizes</h2>
-                <ul class="lead">
+                <ul>
                     <li>
                         The winning team gets a special, limited edition MakeNew shirt! (To qualify for this, you must complete challenges from 3 out of 4 categories, with a total of at least 250 points.)
                     </li>
@@ -74,7 +72,7 @@
                         You can also receive this prize by completing the <%=link_to 'Memorize 100 Verses', verses_path %> challenge.
                     </li>
                     <li>
-                        The student with the most points overall (minimum 500 points, with a complete challenge from every category) gets a <br><font size="+3"><b>free trip to Winter Retreat!!!</b></font>
+                        The student with the most points overall (minimum 500 points, with a complete challenge from every category) gets a <b>free trip to Winter Retreat!!!</b>
                     </li>
                 </ul>
             </div>
@@ -86,7 +84,7 @@
 </div>
 <!-- /.content-section-a -->
 
-<!-- <div class="content-section-b">
+<div class="content-section-b">
     <div class="container">
         <div class="row">
             <hr class="section-heading-spacer-left">
@@ -161,4 +159,4 @@
             </div>
         </div>
     </div>  
-</div> -->
+</div>

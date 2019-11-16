@@ -16,86 +16,56 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-}
-
-.topnav {
-    font-size: 14px; 
-}
-
-.lead {
-    font-size: 18px;
+    font-family: "Work Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
 }
 
-.intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
-    text-align: center;
-    color: #f8f8f8;
-    background: url('/assets/pitt-xmas.jpg') no-repeat center center;
-    background-size: cover;
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 64px;
 }
 
-.completed-background {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: url('/assets/intro-bg.jpg') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    z-index: -1;
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+body {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.topnav {
+    font-size: 14px;
+    padding: 12px 0;
+    background: white;
+
+    .navbar-right {
+        a{
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+    }
+}
+
+.container--padding {
+    padding: 100px 0;
 }
 
 .completed {
     padding: 85px 0px;
-}
-
-.intro-message {
-    position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
-}
-
-.intro-message > h1 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 5em;
-}
-
-.intro-divider {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-}
-
-.intro-message > h3, .intro-count, .intro-message > h4 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-}
-
-@media(max-width:767px) {
-    .intro-message {
-        padding-bottom: 15%;
-    }
-
-    .intro-message > h1 {
-        font-size: 3em;
-    }
-
-    ul.intro-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.intro-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
-
-    .intro-divider {
-        width: 100%;
-    }
 }
 
 .network-name {
@@ -198,6 +168,8 @@ p.copyright {
 .flash {
     position: absolute;
     z-index: 100;
-    top: 50px;
+    top: 100px;
+    left: 24px;
+    right: 24px;
     width: 100%;
 }
