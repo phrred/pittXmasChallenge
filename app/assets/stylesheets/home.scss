@@ -1,6 +1,6 @@
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
+    padding-top: 125px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 75px;
     text-align: center;
     color: #fff;
     background: url('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80') no-repeat center center;
@@ -27,8 +27,6 @@
 
 .intro-message {
     position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
 }
 
 .intro-divider {
@@ -78,7 +76,7 @@
 .stats {
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin: 80px 0;
     flex-wrap: wrap;
 }
 
