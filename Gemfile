@@ -45,7 +45,7 @@ gem 'json', github: 'flori/json', branch: 'v1.8'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'rails_12factor', group: :production
 gem "paperclip", "~> 5.0.0"
 gem 'paperclip-av-transcoder'
