@@ -81,6 +81,10 @@ class StaticPagesController < ApplicationController
    def completed
       @comment = Comment.new
       @comments = Comment.page(params[:page]).order('created_at DESC')
+      @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
+      @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
+      @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
+      @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
    end 
 
    def powerranking

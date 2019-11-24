@@ -15,9 +15,6 @@ gem 'puma', '~> 3.8.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-#### newly added for chart ####
-gem 'compass-rails'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -45,7 +42,7 @@ gem 'json', github: 'flori/json', branch: 'v1.8'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'rails_12factor', group: :production
 gem "paperclip", "~> 5.0.0"
 gem 'paperclip-av-transcoder'
