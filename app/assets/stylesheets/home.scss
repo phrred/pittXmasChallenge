@@ -1,9 +1,9 @@
 .intro-header {
-    padding-top: 125px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-top: 150px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 75px;
     text-align: center;
     color: #fff;
-    background: url('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80') no-repeat center center;
+    background: url('https://images.unsplash.com/photo-1486163224786-2356ec4ab064?ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=100') no-repeat center bottom;
     background-size: cover;
     background-color: grey;
     position: relative;
@@ -15,13 +15,13 @@
         right: 0;
         bottom: 0;
         background-color: black;
-        opacity: 0.5;
+        opacity: 0.2;
     }
 }
 
 .intro__makenew {
-    font-family: 'Arizonia', cursive;
-    font-size: 180px;
+    font-size: 120px;
+    font-weight: 700;
     line-height: 1;
 }
 
@@ -41,13 +41,10 @@
     text-transform: uppercase;
     font-weight: 700;
     line-height: 1;
+    margin-top: 20px;
 }
 
 @media(max-width:767px) {
-    .intro-message {
-        padding: 20% 0 10% 0;
-    }
-
     ul.intro-social-buttons > li {
         display: block;
         margin-bottom: 20px;
@@ -59,9 +56,7 @@
     }
 
     .intro__makenew {
-        font-family: 'Arizonia', cursive;
-        font-size: 100px;
-        line-height: 1;
+        font-size: 60px;
     }
 
     .intro__subtitle {
@@ -76,7 +71,7 @@
 .stats {
     display: flex;
     justify-content: center;
-    margin: 80px 0;
+    margin: 60px 0 80px 0;
     flex-wrap: wrap;
 }
 
@@ -113,6 +108,11 @@
     font-size: 12px;
 }
 
+.prize-container {
+    width: 400px;
+    margin: 0 auto;
+}
+
 @media(max-width:767px) {
     .stats {
         flex-direction: column;
@@ -124,5 +124,29 @@
         margin-right: 0;
         margin-bottom: 32px;
     }
-    
+
+    .prize-container {
+        width: 100%;
+        margin-bottom: 36px;
+    }
+}
+
+@media(max-width:991px) {
+    .prize-container {
+        width: 100%;
+        margin-bottom: 36px;
+    }
+}
+
+.icon {
+    height: 90px;
+    width: 90px;
+    background-color: #324148;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    border-radius: 100%;
+    margin: 0 auto;
 }
