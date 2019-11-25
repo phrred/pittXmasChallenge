@@ -43,6 +43,7 @@ gem 'json', github: 'flori/json', branch: 'v1.8'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.3.1'
+gem 'will_paginate-bootstrap4'
 gem 'rails_12factor', group: :production
 gem "paperclip", "~> 5.0.0"
 gem 'paperclip-av-transcoder'

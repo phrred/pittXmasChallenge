@@ -2,11 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 body,
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding-top: 56px;
 }
 
 body,
@@ -16,184 +19,149 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Quicksand","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+  font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 h1 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 500;
-    font-size: 64px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 64px;
 }
 
 h2 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 24px;
-    font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 h3 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
-    font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 body {
-    font-size: 16px;
-    font-weight: 300;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .topnav {
-    font-size: 14px;
-    padding: 8px 0;
-    background: white;
-
-    .navbar-right {
-        a{
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-    }
+  font-size: 14px;
+  background: white;
 }
 
 .container--padding {
-    padding: 100px 0;
+  padding: 100px 0;
 }
 
 .completed {
-    padding: 85px 0px;
+  padding: 85px 0px;
 }
 
 .network-name {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 .content-section-a {
-    padding: 50px 0;
-    color: black;
+  padding: 50px 0;
+  color: black;
 }
 
 .content-section-b {
-    padding: 50px 0;
-    background: #f0f0f0;
+  padding: 50px 0;
+  background: #f0f0f0;
 }
 
 .section-heading {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .section-heading-spacer-center {
-    float: center;
-    width: 200px;
-    border-top: 3px solid #e7e7e7;
+  float: center;
+  width: 200px;
+  border-top: 3px solid #e7e7e7;
 }
 
 .section-heading-spacer-left {
-    float: left;
-    width: 200px;
-    border-top: 3px solid #e7e7e7;
+  float: left;
+  width: 200px;
+  border-top: 3px solid #e7e7e7;
 }
 
 .banner {
-    padding: 100px 0;
-    color: #f8f8f8;
-    background: url(../img/xmas-challenge.jpg) no-repeat center center;
-    background-size: cover;
+  padding: 100px 0;
+  color: #f8f8f8;
+  background: url(../img/xmas-challenge.jpg) no-repeat center center;
+  background-size: cover;
 }
 
 .banner h2 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 3em;
+  margin: 0;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-size: 3em;
 }
 
 .banner ul {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .banner-social-buttons {
-    float: right;
-    margin-top: 0;
+  float: right;
+  margin-top: 0;
 }
 
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
+@media (max-width: 1199px) {
+  ul.banner-social-buttons {
+    float: left;
+    margin-top: 15px;
+  }
 }
 
-@media(max-width:767px) {
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: 3em;
-    }
+@media (max-width: 767px) {
+  .banner h2 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 3em;
+  }
 
-    ul.banner-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
+  ul.banner-social-buttons > li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
 
-    ul.banner-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
+  ul.banner-social-buttons > li:last-child {
+    margin-bottom: 0;
+  }
 }
 
 footer {
-    padding: 50px 0;
-    background-color: #f8f8f8;
+  padding: 50px 0;
+  background-color: #f8f8f8;
 }
 
 p.copyright {
-    margin: 15px 0 0;
+  margin: 15px 0 0;
 }
 
-
 .all-comments {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 // <--------------------->
 
 .flash {
-    position: absolute;
-    z-index: 100;
-    top: 100px;
-    left: 24px;
-    right: 24px;
-}
-
-.btn-primary {
-    border-radius: 0;
-    border: solid 1px white;
-    background: transparent;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 16px;
-    transition: all 0.25s;
-
-    &:hover,
-    &:focus {
-        border: solid 1px white;
-        background: white;
-        color: black;
-    }
-}
-
-.btn-lg {
-    padding: 16px 24px;
-}
-
-.modal-title {
-    display: inline-block;
+  position: absolute;
+  z-index: 100;
+  top: 80px;
+  left: 24px;
+  right: 24px;
 }
