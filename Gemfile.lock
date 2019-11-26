@@ -59,8 +59,6 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    bootstrap-will_paginate (0.0.10)
-      will_paginate
     builder (3.2.2)
     byebug (9.0.6)
     climate_control (0.0.3)
@@ -350,7 +348,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 1.36.1)
   bootstrap (~> 4.3.1)
-  bootstrap-will_paginate
   byebug
   coffee-rails (~> 4.2)
   figaro
