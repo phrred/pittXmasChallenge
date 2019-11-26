@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$teal: #324148;
+
 body,
 html {
   width: 100%;
@@ -32,10 +34,25 @@ h1 {
 }
 
 h2 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 24px;
+  // text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 30px;
   font-weight: 600;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -10px;
+    right: -10px;
+    bottom: -1px;
+    height: 12px;
+    opacity: 0.5;
+    background-color: gold;
+  }
 }
 
 h3 {
@@ -51,8 +68,11 @@ body {
 }
 
 .topnav {
-  font-size: 14px;
   background: white;
+
+  .navbar-brand {
+    font-weight: 700;
+  }
 }
 
 .container--padding {
@@ -141,11 +161,6 @@ body {
   ul.banner-social-buttons > li:last-child {
     margin-bottom: 0;
   }
-}
-
-footer {
-  padding: 50px 0;
-  background-color: #f8f8f8;
 }
 
 p.copyright {

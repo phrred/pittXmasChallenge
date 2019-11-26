@@ -26,7 +26,8 @@ class StaticPagesController < ApplicationController
 
       @winner = @points.delete_at(0)
 
-   	@comment = Comment.new
+      @comment = Comment.new
+      @comments = Comment.page(params[:page]).order('created_at DESC')
 
       @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
       @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)

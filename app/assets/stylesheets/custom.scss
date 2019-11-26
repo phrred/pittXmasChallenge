@@ -1,1 +1,30 @@
 @import "bootstrap";
+
+$teal: #324148;
+
+footer {
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  background: $teal;
+  letter-spacing: 1.5px;
+
+  a {
+    color: white;
+    text-decoration: underline;
+
+    &:hover {
+      color: #eee;
+    }
+  }
+}
+
+.page-link {
+  color: $teal;
+}
+
+.page-item.active .page-link {
+  background-color: $teal;
+  border-color: $teal;
+}

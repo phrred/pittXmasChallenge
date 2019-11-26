@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
     <div class="col-lg-12">
       <h2>Completed Challenges</h2>
-      <p>
+      <p class="mb-5">
         <% if @comments.length != 0 %>
           Here are the list of accomplished missions so far. Browse through them to see what others have been up to during break!
         <% else %>
@@ -42,6 +42,7 @@
             </div>
           </div>
         <% end %>
+        <hr>
         <div class="pagination">
           <%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
         </div>

@@ -22,7 +22,7 @@
               </div>
             <% end %>
           </div>
-          <button type="button" data-toggle="modal" data-target="#logChallenge" class="btn btn-info btn-lg">Log a challenge</button>
+          <button type="button" data-toggle="modal" data-target="#logChallenge" class="btn btn-warning btn-lg">Log a challenge</button>
         </div>
       </div>
     </div>
@@ -31,23 +31,52 @@
 </div>
 <!-- /.intro-header -->
 <!-- Page Content -->
+<!-- /.content-section-a -->
 <div class="content-section-a">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <img src="https://png2.cleanpng.com/sh/7943c9bb6954dda8e28c3cf0a8d82193/L0KzQYm3UsE4N5pqfZH0aYP2gLBuTgNvd6gyfNHCbnzycbW0kB5wf155hAl3LUXkSInqhMNmPpY4eqcELka8RISAVsk2OWY2UKs6NEi6SIW8UcUveJ9s/kisspng-snow-download-snow-town-5a88cd3e6e3b59.6943769515189148784515.png" width="100%">
+      <div class="text-center col-lg-12">
+        <h2 class="section-heading">Recent happenings ...</h2>
       </div>
-      <div class="col-sm-12 col-md-6">
-        <h2 class="section-heading">The Challenge</h2>
-        <p>This winter break, let's stir up one another to love and good works with some friendly competition! Complete various challenges to grow, serve others, and equip yourself, and compete with teams along the way!</p>
-        <p>The challenge ends on January 4th, 2020.</p>
+      <% @comments[0..2].each do |comment| %>
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-header text-uppercase" style="font-size: 12px;">
+              <%= comment.created_at.in_time_zone(-5).to_time.strftime('%B %e at %l:%M %p') %>
+            </div>
+            <div class="card-body">
+              <span class="font-weight-bold"><%= comment.name %></span> recently logged <span class="font-weight-bold"><%= comment.mission.name %></span> and earned <span class="font-weight-bold"><%= comment.mission.points %> points</span> for the <span class="font-weight-bold"><%= comment.team %></span> team!
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="text-center col-lg-12 mt-2">
+        <a href="/completed" class="btn btn-warning mt-3">View Completed Challenges</a>
       </div>
     </div>
   </div>
-  <!-- /.container -->
+</div>
+</div>
+<div class="content-section-b">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6">
+        <img class="mb-5 mb-lg-0" src="https://png2.cleanpng.com/sh/7943c9bb6954dda8e28c3cf0a8d82193/L0KzQYm3UsE4N5pqfZH0aYP2gLBuTgNvd6gyfNHCbnzycbW0kB5wf155hAl3LUXkSInqhMNmPpY4eqcELka8RISAVsk2OWY2UKs6NEi6SIW8UcUveJ9s/kisspng-snow-download-snow-town-5a88cd3e6e3b59.6943769515189148784515.png" width="100%">
+      </div>
+      <div class="col-sm-12 col-lg-6 text-center text-lg-left">
+        <h2 class="section-heading"><span>The Challenge<span></h2>
+            <p>This winter break, let's stir up one another to love and good works with some friendly competition! Complete various challenges to grow, serve others, and equip yourself, and compete with teams along the way!</p>
+            <p class="font-weight-bold">The challenge ends on January 4th, 2020.</p>
+            <a href="/challenges" class="btn btn-warning mt-3">View Challenges</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </div>
+  </div>
 </div>
 <!-- /.content-section-a -->
-<div class="content-section-b">
+<div class="content-section-a">
   <div class="container">
     <div class="row text-center">
       <div class="col-lg-12">
