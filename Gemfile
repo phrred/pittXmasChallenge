@@ -55,7 +55,10 @@ gem "figaro"
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 gem 'sprockets', '~>3.7.2'
-
+gem "omniauth-google-oauth2"
+gem "omniauth-office365"
+gem 'select2-rails'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -8,9 +8,14 @@
 
 Mission.delete_all
 Category.delete_all
+Team.delete_all
+
+Team.create!(name: "bros")
+Team.create!(name: "sis")
+Team.create!(name: "staff")
 
 sg = Category.create!(mission_type: 'Spiritual Growth')
-ev = Category.create!(mission_type: 'Evangelism')
+ev = Category.create!(mission_type: 'Evangelism') 
 ser = Category.create!(mission_type: 'Service/Gratitude')
 equ = Category.create!(mission_type: 'Equipping')
 
@@ -47,7 +52,7 @@ Mission.create!(name: 'Memorize: Psalm 51', points: 50, category: sg)
 Mission.create!(name: 'Memorize: Psalm 23', points: 50, category: sg)
 Mission.create!(name: 'Memorize: Psalm 1', points: 50, category: sg)
 Mission.create!(name: 'Go on a prayer walk for at least 15 minutes', points: 15, category: sg)
-Mission.create!(name: 'Memorize: 100 verses every Christian should know (ask your staff)', points: 1000, category: sg)
+Mission.create!(name: 'Memorize: 2 Timothy', points: 830, category: sg)
 Mission.create!(name: 'Memorize: Any hymn', points: 20, category: sg)
 Mission.create!(name: 'Memorize: Beatitudes', points: 50, category: sg)
 Mission.create!(name: 'Read through the entire New Testament', points: 200, category: sg)

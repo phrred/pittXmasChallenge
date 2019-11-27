@@ -1,0 +1,13 @@
+<script>
+    $(document).ready(function() { $("#user_team").select2(); });
+ </script> 
+
+<div class="Container">
+  <h1>Create your account</h1>
+
+  <%= simple_form_for(@user, url: profile_path, :method => :update) do |f| %>
+    <%= f.input :name, :label => 'Name', input_html: {value: @user_name} %>
+    <%= f.input :team, collection: @team_names, :label => 'Team', selected: @user_team%>
+    <%= f.button :submit,  data: { disable_with: false }, class: 'Button' %>
+  <% end -%>
+</div>
