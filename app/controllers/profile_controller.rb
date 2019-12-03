@@ -10,6 +10,7 @@ class ProfileController < ApplicationController
     @user = User.new
     @campus_names = ["CMU", "PITT"]
     @user_name = session[:user_name]
+    @user_staff = @user.staff
   end
 
   def show
@@ -27,6 +28,7 @@ class ProfileController < ApplicationController
       @user_email = @user.email
       @user_gender = if @user.gender then "Male" else "Female" end
       @campus_names = ["CMU", "PITT"]
+      @user_staff = @user.staff
     else
       @user = User.new
     end
@@ -45,6 +47,7 @@ class ProfileController < ApplicationController
     input_name = input[:name]
     input_campus = input[:campus]
     input_gender = input[:gender]
+    input_staff = input[:staff]
 
 
     if @user != nil
@@ -52,7 +55,8 @@ class ProfileController < ApplicationController
         name: input_name,
         email: session_email,
         campus: input_campus,
-        gender: input_gender
+        gender: input_gender,
+        staff: input_staff
       )
       redirect_to action: "show", controller: "profile"
     else
@@ -60,7 +64,8 @@ class ProfileController < ApplicationController
         name: input_name,
         email: session_email,
         campus: input_campus,
-        gender: input_gender
+        gender: input_gender,
+        staff: input_staff
       )
       redirect_to action: "home", controller: "static_pages"
     end
@@ -79,7 +84,8 @@ class ProfileController < ApplicationController
       name: input[:name],
       email: session[:email],
       campus: input[:campus],
-      gender: user_gender
+      gender: user_gender,
+      staff: input[:staff]
     )
 
   end

@@ -1,95 +1,132 @@
 class StaticPagesController < ApplicationController
-   def home
-      @totalCount = Comment.count
-      one = Comment.where(:team => "Bros").all
-      two = Comment.where(:team => "Sis").all
-      three = Comment.where(:team => "Staff").all
-   	@oneSum = 0;
-   	@twoSum = 0;
-      @threeSum = 0;
+  def home
+    @totalCount = Comment.count
+    pitt_bros = Comment.joins(:user).where(users: {gender:true, campus:"PITT", staff: false}).all
+    pitt_sis = Comment.joins(:user).where(users: {gender:false, campus:"PITT", staff: false}).all
+    pitt_staff = Comment.joins(:user).where(users: {campus:"PITT", staff: true}).all
+    cmu_bros = Comment.joins(:user).where(users: {gender:true, campus:"CMU", staff: false}).all
+    cmu_sis = Comment.joins(:user).where(users: {gender:false, campus:"CMU", staff: false}).all
+    cmu_staff = Comment.joins(:user).where(users: {campus:"CMU", staff: true}).all
+    @pitt_bros_sum = 0;
+    @pitt_sis_sum = 0;
+    @pitt_staff_sum = 0;
+    @cmu_bros_sum = 0;
+    @cmu_sis_sum = 0;
+    @cmu_staff_sum = 0;
 
-   	one.each do |post|
-   		@oneSum += post.mission.points
-   	end
+    pitt_bros.each do |post|
+      @pitt_bros_sum += post.mission.points
+    end
 
-      two.each do |post|
-         @twoSum += post.mission.points
-      end
+    pitt_sis.each do |post|
+      @pitt_sis_sum += post.mission.points
+    end
 
-      three.each do |post|
-         @threeSum += post.mission.points
-      end
+    pitt_staff.each do |post|
+      @pitt_staff_sum += post.mission.points
+    end
 
-      @points = [['Bros', @oneSum], ['Sis', @twoSum], ['Staff', @threeSum]].sort do |a, b|
-         b[1] <=> a[1]
-      end
+    cmu_bros.each do |post|
+      @cmu_bros_sum += post.mission.points
+    end
 
-      @winner = @points.delete_at(0)
+    cmu_sis.each do |post|
+      @cmu_sis_sum += post.mission.points
+    end
 
-      @comment = Comment.new
-      @comments = Comment.page(params[:page]).order('created_at DESC')
+    cmu_staff.each do |post|
+      @cmu_staff_sum += post.mission.points
+    end
 
-      @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
-      @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
-      @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
-      @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
-   end
 
-   def challenges
-      @comment = Comment.new
-   	@sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
-   	@evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
-   	@ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
-   	@eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
-   end
+    @points = [['PITT Bros', @pitt_bros_sum], ['PITT Sis', @pitt_sis_sum], ['PITT Staff', @pitt_staff_sum], ['CMU Bros', @cmu_bros_sum], ['CMU Sis', @cmu_sis_sum], ['CMU Staff', @cmu_staff_sum]].sort do |a, b|
+      b[1] <=> a[1]
+    end
 
-   def stats
-      #@one = ['Kevan', 'Jon Kim', 'Will', 'Alex', 'Josh Joo', 'Kevin Stock', 'Daniel Liu', 'Godwin Law', 'Jonathan Chen']
-      #@two = ['Jenny', 'Kat Kim', 'Alex', 'Adeline', 'Huizhen', 'Dasol', 'Vivian L', 'Jennifer Li', 'Stella Oh', 'Michelle Kim', 'Vanessa', 'Mira Chiu', 'Katherine Cai']
-      #@three = ['Joe', 'Brian Jue', 'Ivan Yung', 'Jeff W', 'Nathan M', 'Andrew N.', 'Josh Kim', 'David Lee', 'Daniel Shan', 'Matt Estrada', 'Ben VDH', 'Noah Kang']
-      #@four = ['Irene', 'Ellen Jue', 'San Yung', 'Joyce Cho', 'Joyce Han', 'Nancy P.', 'Claire Lee', 'Kristy J', 'Grace Park', 'Yvonne W', 'Micaela W']
+    @winner = @points.delete_at(0)
 
-      @totalCount = Comment.count
-      one = Comment.where(:team => "Bros").all
-      two = Comment.where(:team => "Sis").all
-      three = Comment.where(:team => "Staff").all
-      @oneSum = 0;
-      @twoSum = 0;
-      @threeSum = 0;
+    @comment = Comment.new
+    @comments = Comment.page(params[:page]).order('created_at DESC')
 
-      one.each do |post|
-         @oneSum += post.mission.points
-      end
+    @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
+    @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
+    @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
+    @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+  end
 
-      two.each do |post|
-         @twoSum += post.mission.points
-      end
+  def challenges
+    @comment = Comment.new
+    @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
+    @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
+    @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
+    @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+  end
 
-      three.each do |post|
-         @threeSum += post.mission.points
-      end
+  def stats
+    #@one = ['Kevan', 'Jon Kim', 'Will', 'Alex', 'Josh Joo', 'Kevin Stock', 'Daniel Liu', 'Godwin Law', 'Jonathan Chen']
+    #@two = ['Jenny', 'Kat Kim', 'Alex', 'Adeline', 'Huizhen', 'Dasol', 'Vivian L', 'Jennifer Li', 'Stella Oh', 'Michelle Kim', 'Vanessa', 'Mira Chiu', 'Katherine Cai']
+    #@three = ['Joe', 'Brian Jue', 'Ivan Yung', 'Jeff W', 'Nathan M', 'Andrew N.', 'Josh Kim', 'David Lee', 'Daniel Shan', 'Matt Estrada', 'Ben VDH', 'Noah Kang']
+    #@four = ['Irene', 'Ellen Jue', 'San Yung', 'Joyce Cho', 'Joyce Han', 'Nancy P.', 'Claire Lee', 'Kristy J', 'Grace Park', 'Yvonne W', 'Micaela W']
 
-      @points = [['Bros', @oneSum], ['Sis', @twoSum], ['Staff', @threeSum]].sort do |a, b|
-         b[1] <=> a[1]
-      end
+    pitt_bros = Comment.joins(:user).where(users: {gender:true, campus:"PITT", staff: false}).all
+    pitt_sis = Comment.joins(:user).where(users: {gender:false, campus:"PITT", staff: false}).all
+    pitt_staff = Comment.joins(:user).where(users: {campus:"PITT", staff: true}).all
+    cmu_bros = Comment.joins(:user).where(users: {gender:true, campus:"CMU", staff: false}).all
+    cmu_sis = Comment.joins(:user).where(users: {gender:false, campus:"CMU", staff: false}).all
+    cmu_staff = Comment.joins(:user).where(users: {campus:"CMU", staff: true}).all
+    @pitt_bros_sum = 0;
+    @pitt_sis_sum = 0;
+    @pitt_staff_sum = 0;
+    @cmu_bros_sum = 0;
+    @cmu_sis_sum = 0;
+    @cmu_staff_sum = 0;
 
-      # @points = [[team, pointSum],...]
+    pitt_bros.each do |post|
+      @pitt_bros_sum += post.mission.points
+    end
 
-      @winner = @points.delete_at(0)
+    pitt_sis.each do |post|
+      @pitt_sis_sum += post.mission.points
+    end
 
-   end
+    pitt_staff.each do |post|
+      @pitt_staff_sum += post.mission.points
+    end
 
-   def completed
-      @comment = Comment.new
-      @comments = Comment.page(params[:page]).order('created_at DESC')
-      @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
-      @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
-      @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
-      @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
-   end 
+    cmu_bros.each do |post|
+      @cmu_bros_sum += post.mission.points
+    end
 
-   def powerranking
-      names = Comment.uniq.pluck(:name)
-   end
+    cmu_sis.each do |post|
+      @cmu_sis_sum += post.mission.points
+    end
+
+    cmu_staff.each do |post|
+      @cmu_staff_sum += post.mission.points
+    end
+
+
+    @points = [['PITT Bros', @pitt_bros_sum], ['PITT Sis', @pitt_sis_sum], ['PITT Staff', @pitt_staff_sum], ['CMU Bros', @cmu_bros_sum], ['CMU Sis', @cmu_sis_sum], ['CMU Staff', @cmu_staff_sum]].sort do |a, b|
+      b[1] <=> a[1]
+    end
+
+    # @points = [[team, pointSum],...]
+
+    @winner = @points.delete_at(0)
+
+  end
+
+  def completed
+    @comment = Comment.new
+    @comments = Comment.page(params[:page]).order('created_at DESC')
+    @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
+    @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
+    @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
+    @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+  end
+
+  def powerranking
+    names = Comment.uniq.pluck(:name)
+  end
 
 end

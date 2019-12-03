@@ -17,8 +17,8 @@
           <hr>
           <div class="row">
             <div class="col-md-3 mb-4">
-              <span class="font-weight-bold"><%= comment.name %></span>
-              <span class="badge badge-pill badge-warning"><%= comment.team %></span>
+              <span class="font-weight-bold"><%= comment.user.name %></span>
+              <span class="badge badge-pill badge-warning"><%= comment.user.campus + " " + (comment.user.staff ? "Staff" : (comment.user.gender ? "Bros" : "Sis")) %></span>
               <div class="text-uppercase text-muted mt-1" style="font-size: 12px;"><%= comment.created_at.in_time_zone(-5).to_time.strftime('%B %e at %l:%M %p') %></div>
             </div>
             <div class="col-md-9">

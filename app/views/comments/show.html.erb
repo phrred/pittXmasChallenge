@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @comment.name %>
+  <%= @comment.user.name %>
 </p>
 
 <p>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Team:</strong>
-  <%= @comment.team %>
+  <%= @comment.user.campus + " " + (@comment.user.staff ? "Staff" : (@comment.user.gender ? "Bros" : "Sis")) %>
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |

@@ -10,6 +10,7 @@
     <%= f.input :name, :label => 'Name', input_html: {value: @user_name} %>
   	<%= f.input :campus, collection: @campus_names, :label => 'Campus', selected: @user_campus%>
     <%= f.input :gender, collection: ["Male", "Female"], :label => "Gender", selected: @user_gender%>
+    <%= f.input :staff, :label => "Staff", :value => @user_staff%>
     <%= f.button :submit,  data: { disable_with: false }, class: 'Button' %>
   <% end -%>
 </div>

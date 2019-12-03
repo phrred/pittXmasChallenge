@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170521033301) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "user_id"
     t.string   "content"
     t.string   "team"
     t.datetime "created_at",          null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170521033301) do
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
     t.index ["mission_id"], name: "index_comments_on_mission_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "missions", force: :cascade do |t|
@@ -53,10 +54,12 @@ ActiveRecord::Schema.define(version: 20170521033301) do
     t.string   "name"
     t.string   "campus"
     t.boolean  "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "staff",      default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_foreign_key "comments", "missions"
+  add_foreign_key "comments", "users"
   add_foreign_key "missions", "categories"
 end

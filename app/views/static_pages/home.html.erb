@@ -45,7 +45,7 @@
               <%= comment.created_at.in_time_zone(-5).to_time.strftime('%B %e at %l:%M %p') %>
             </div>
             <div class="card-body">
-              <span class="font-weight-bold"><%= comment.name %></span> recently logged <span class="font-weight-bold"><%= comment.mission.name %></span> and earned <span class="font-weight-bold"><%= comment.mission.points %> points</span> for the <span class="font-weight-bold"><%= comment.team %></span> team!
+              <span class="font-weight-bold"><%= comment.user.name %></span> recently logged <span class="font-weight-bold"><%= comment.mission.name %></span> and earned <span class="font-weight-bold"><%= comment.mission.points %> points</span> for the <span class="font-weight-bold"><%= comment.user.campus + " " + (comment.user.staff ? "Staff" : (comment.user.gender ? "Bros" : "Sis")) %></span> team!
             </div>
           </div>
         </div>
