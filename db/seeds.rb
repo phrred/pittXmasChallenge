@@ -8,11 +8,6 @@
 
 Mission.delete_all
 Category.delete_all
-Team.delete_all
-
-Team.create!(name: "bros")
-Team.create!(name: "sis")
-Team.create!(name: "staff")
 
 sg = Category.create!(mission_type: 'Spiritual Growth')
 ev = Category.create!(mission_type: 'Evangelism') 

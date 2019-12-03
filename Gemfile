@@ -59,6 +59,9 @@ gem "omniauth-google-oauth2"
 gem "omniauth-office365"
 gem 'select2-rails'
 gem 'simple_form'
+gem 'oauth2'
+gem 'microsoft_graph'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'stats', to: 'static_pages#stats'
   get 'verses', to: 'static_pages#verses'
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
+  get 'microsoft_auth', to: 'sessions#microsoftAuth'
   get 'auth/failure' , to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get "profile", to: "profile#show"

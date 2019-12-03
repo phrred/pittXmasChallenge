@@ -24,6 +24,12 @@
             <%= link_to "Completed", completed_path, {:class=>"nav-link mr-3"} %>
           </li>
           <li class="nav-item">
+            <%= link_to "Profile", profile_path, {:class=>"nav-link mr-3"} %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log Out", signout_path, {:class=>"nav-link mr-3"} %>
+          </li>
+          <li class="nav-item">
             <button type="button" data-toggle="modal" data-target="#logChallenge" class="btn btn-warning">Log a challenge</button>
           </li>
         </ul>
@@ -45,76 +51,78 @@
     </div>
     <%= yield %>
     <!-- Modal -->
-    <div class="modal fade" id="logChallenge" tabindex="-1" role="dialog" aria-labelledby="logChallengeTitle" aria-hidden="true">
-      <div class="modal-dialog  modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title" id="logChallengeTitle">Log a challenge</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <%= form_for @comment, :html => {:role => 'form'} do |f| %>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-lg-12">
-                  <%= render 'shared/error_messages' %>
-                  <div class="form-group">
-                    <%= f.label :name, "Name (first and last)" %>
-                    <%= f.text_field :name, { :class => "form-control"} %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :team %>
-                    <%= f.select :team, options_for_select(["Bros", "Sis", "Staff"]), {:prompt => 'Select Team'}, { :class => "form-control" } %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :content, "Blurb" %>
-                    <%= f.text_area :content, { :class => "form-control", rows: "5"} %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :mission_id, "Challenge" %>
-                    <select class="form-control" name="comment[mission_id]" id="comment_mission_id">
-                      <option value>Select Challenge</option>
-                      <optgroup label="Spiritual Growth">Spiritual Growth
-                        <% @sg.each do |mission| %>
-                          <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
-                        <% end %>
-                      </optgroup>
-                      <optgroup label="Evangelism">Evangelism
-                        <% @evangelism.each do |mission| %>
-                          <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
-                        <% end %>
-                      </optgroup>
-                      <optgroup label="Service/Gratitude">Service/Gratitude
-                        <% @ser.each do |mission| %>
-                          <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
-                        <% end %>
-                      </optgroup>
-                      <optgroup label="Equipping">Equipping
-                        <% @eq.each do |mission| %>
-                          <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
-                        <% end %>
-                      </optgroup>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :avatar, "Upload a Picture (optional, but recommended)" %>
-                    <%= f.file_field :avatar, { :class => "form-control"} %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :video, "Upload a Video (optional)" %>
-                    <%= f.file_field :video, { :class => "form-control"} %>
+    <% if !session[:user_email].nil? %>
+      <div class="modal fade" id="logChallenge" tabindex="-1" role="dialog" aria-labelledby="logChallengeTitle" aria-hidden="true">
+        <div class="modal-dialog  modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="logChallengeTitle">Log a challenge</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <%= form_for @comment, :html => {:role => 'form'} do |f| %>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <%= render 'shared/error_messages' %>
+                    <div class="form-group">
+                      <%= f.label :name, "Name (first and last)" %>
+                      <%= f.text_field :name, { :class => "form-control"} %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :team %>
+                      <%= f.select :team, options_for_select(["Bros", "Sis", "Staff"]), {:prompt => 'Select Team'}, { :class => "form-control" } %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :content, "Blurb" %>
+                      <%= f.text_area :content, { :class => "form-control", rows: "5"} %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :mission_id, "Challenge" %>
+                      <select class="form-control" name="comment[mission_id]" id="comment_mission_id">
+                        <option value>Select Challenge</option>
+                        <optgroup label="Spiritual Growth">Spiritual Growth
+                          <% @sg.each do |mission| %>
+                            <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
+                          <% end %>
+                        </optgroup>
+                        <optgroup label="Evangelism">Evangelism
+                          <% @evangelism.each do |mission| %>
+                            <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
+                          <% end %>
+                        </optgroup>
+                        <optgroup label="Service/Gratitude">Service/Gratitude
+                          <% @ser.each do |mission| %>
+                            <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
+                          <% end %>
+                        </optgroup>
+                        <optgroup label="Equipping">Equipping
+                          <% @eq.each do |mission| %>
+                            <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>
+                          <% end %>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :avatar, "Upload a Picture (optional, but recommended)" %>
+                      <%= f.file_field :avatar, { :class => "form-control"} %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :video, "Upload a Video (optional)" %>
+                      <%= f.file_field :video, { :class => "form-control"} %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-              <%= f.submit "Submit", class: "btn btn-warning" %>
-            </div>
-          <% end %>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <%= f.submit "Submit", class: "btn btn-warning" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
+    <% end %>
     </div>
     <footer class="navbar navbar-expand-lg navbar-dark text-center">
       <div class="m-auto">

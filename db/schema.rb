@@ -48,20 +48,15 @@ ActiveRecord::Schema.define(version: 20170521033301) do
     t.index ["category_id"], name: "index_missions_on_category_id", using: :btree
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
-    t.integer  "team_id"
+    t.string   "campus"
+    t.boolean  "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
   add_foreign_key "comments", "missions"
   add_foreign_key "missions", "categories"
-  add_foreign_key "users", "teams"
 end
