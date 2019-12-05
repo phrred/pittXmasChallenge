@@ -19,8 +19,9 @@ class ProfileController < ApplicationController
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
     session_email = session[:user_email]
-
     @user = User.where(email: session_email).take
+    @comments = Comment.where(:user => @user).page(params[:page]).order('created_at DESC')
+
     if @user != nil
       @user_campus = @user.campus
       @user_name = @user.name

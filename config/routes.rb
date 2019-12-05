@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   get "profile", to: "profile#show"
   post "profile", to: "profile#update"
   post "create_user", to: "profile#create"
+  patch "update_comment", to: "comments#update"
 
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :update]
   resources :profile
 
   root to: "login#show"
