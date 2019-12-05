@@ -46,7 +46,7 @@ class ProfileController < ApplicationController
     input = params[:user]
     input_name = input[:name]
     input_campus = input[:campus]
-    input_gender = input[:gender]
+    input_gender = if input[:gender] == "Male" then true else false end
     input_staff = input[:staff]
 
 
@@ -79,7 +79,7 @@ class ProfileController < ApplicationController
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
     input =  params[:user]
     campus = input[:campus]
-    user_gender = if user[:gender] == "Male" then true else false end
+    user_gender = if input[:gender] == "Male" then true else false end
     @user = User.create!(
       name: input[:name],
       email: session[:email],
