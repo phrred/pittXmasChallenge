@@ -29,6 +29,29 @@ class ProfileController < ApplicationController
       @user_gender = if @user.gender then "Male" else "Female" end
       @campus_names = ["CMU", "PITT"]
       @user_staff = @user.staff
+      user_comments = Comment.where(:user => @user).all
+      @user_points = 0
+      @sg_points = 0
+      @evangelism_points = 0
+      @ser_points = 0
+      @eq_points = 0
+      @thanksgiving_points = 0
+      user_comments.each do |comment|
+        @user_points += comment.mission.points
+        case comment.mission.category.mission_type
+        when "Spiritual Growth"
+          @sg_points += comment.mission.points
+        when "Evangelism"
+          @evangelism_points += comment.mission.points
+        when "Service/Gratitude"
+          @ser_points += comment.mission.points
+        when "Equipping"
+          @eq_points += comment.mission.points
+        when "Thanksgiving Challenge"
+          @thanksgiving_points += comment.mission.points
+        end
+        
+      end
     else
       @user = User.new
     end

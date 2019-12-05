@@ -13,6 +13,7 @@ sg = Category.create!(mission_type: 'Spiritual Growth')
 ev = Category.create!(mission_type: 'Evangelism') 
 ser = Category.create!(mission_type: 'Service/Gratitude')
 equ = Category.create!(mission_type: 'Equipping')
+thanksgiving = Category.create!(mission_type: 'Thanksgiving Challenge')
 
 # service/gratitude
 Mission.create!(name: 'Do the dishes for your family (max: 10)', points: 5, category: ser)
@@ -90,3 +91,6 @@ Mission.create!(name: 'Learn how to play a praise song and post a video (e.g. gu
 Mission.create!(name: 'Prepare a winsome and clear explanation of the Gospel in less than 2 minutes (post a video!)', points: 30, category: equ)
 Mission.create!(name: 'Run a 10K', points: 50, category: equ)
 Mission.create!(name: 'Reach out and connect with staff over facetime/google hangouts/skype/call (not text!)', points: 10, category: equ)
+
+#Thanksgiving Challenge
+Mission.create!(name: 'Completed Thanksgiving Challenge', points: 200, category: thanksgiving)
