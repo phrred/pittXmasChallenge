@@ -10,7 +10,6 @@ class ProfileController < ApplicationController
     @user = User.new
     @campus_names = ["CMU", "PITT"]
     @user_name = session[:user_name]
-    @user_staff = @user.staff
   end
 
   def show
@@ -28,7 +27,6 @@ class ProfileController < ApplicationController
       @user_email = @user.email
       @user_gender = if @user.gender then "Male" else "Female" end
       @campus_names = ["CMU", "PITT"]
-      @user_staff = @user.staff
       user_comments = Comment.where(:user => @user).all
       @user_points = 0
       @sg_points = 0
@@ -70,8 +68,7 @@ class ProfileController < ApplicationController
     input_name = input[:name]
     input_campus = input[:campus]
     input_gender = if input[:gender] == "Male" then true else false end
-    input_staff = input[:staff]
-
+    is_staff = session_email.include?("gpmail") 
 
     if @user != nil
       @user.update!(
@@ -79,7 +76,7 @@ class ProfileController < ApplicationController
         email: session_email,
         campus: input_campus,
         gender: input_gender,
-        staff: input_staff
+        staff: is_staff
       )
       redirect_to action: "show", controller: "profile"
     else
@@ -88,7 +85,7 @@ class ProfileController < ApplicationController
         email: session_email,
         campus: input_campus,
         gender: input_gender,
-        staff: input_staff
+        staff: is_staff
       )
       redirect_to action: "home", controller: "static_pages"
     end
@@ -103,12 +100,13 @@ class ProfileController < ApplicationController
     input =  params[:user]
     campus = input[:campus]
     user_gender = if input[:gender] == "Male" then true else false end
+    is_staff = session[:user_email].include?("gpmail") 
     @user = User.create!(
       name: input[:name],
-      email: session[:email],
+      email: session[:user_email],
       campus: input[:campus],
       gender: user_gender,
-      staff: input[:staff]
+      staff: is_staff
     )
 
   end
