@@ -5,10 +5,9 @@ class CommentsController < ApplicationController
     @comment.user = user
     if @comment.save
       flash[:success] = "Comment posted! Your progress has been logged."
-      redirect_to root_url
+      redirect_to '/completed'
     else
       flash[:error] = @comment.errors.full_messages.to_sentence
-      redirect_to root_url
     end
 
   end
