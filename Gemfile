@@ -44,7 +44,7 @@ gem 'json', github: 'flori/json', branch: 'v1.8'
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'rails_12factor', group: :production
-gem "paperclip", "~> 6.0.0"
+gem "paperclip", "~> 5.2.0"
 gem 'paperclip-av-transcoder'
 
 gem 'aws-sdk', '~> 1.36.1'
