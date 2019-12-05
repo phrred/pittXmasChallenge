@@ -12,9 +12,6 @@
         <div class="form-group">
           <%= f.input :gender, collection: ["Male", "Female"], :label => "Gender", selected: @user_gender, input_html: {class: "form-control"} %>
         </div>
-        <div class="form-group form-check">
-          <%= f.input :staff, :label => "Staff", :value => @user_staff, input_html: {class: "form-check-input"}%>
-        </div>
         <%= f.button :submit,  data: { disable_with: false }, class: 'btn btn-warning' %>
       <% end -%>
     </div>
