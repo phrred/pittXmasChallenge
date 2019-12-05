@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.2'
 gem 'pg'
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
@@ -44,10 +44,11 @@ gem 'json', github: 'flori/json', branch: 'v1.8'
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'rails_12factor', group: :production
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 6.0.0"
 gem 'paperclip-av-transcoder'
 
 gem 'aws-sdk', '~> 1.36.1'
+gem "aws-sdk-s3"
 gem 'fog' 
 
 gem "figaro"
@@ -61,7 +62,7 @@ gem 'select2-rails'
 gem 'simple_form'
 gem 'oauth2'
 gem 'microsoft_graph'
-
+gem "mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

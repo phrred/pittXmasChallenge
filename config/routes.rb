@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'home', to: "static_pages#home"
   get 'challenges', to: 'static_pages#challenges'
   get 'completed', to: 'static_pages#completed'
@@ -16,5 +17,4 @@ Rails.application.routes.draw do
   resources :profile
 
   root to: "login#show"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

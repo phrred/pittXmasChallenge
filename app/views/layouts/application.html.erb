@@ -98,11 +98,11 @@
                     </div>
                     <div class="form-group">
                       <%= f.label :avatar, "Upload a Picture (optional, but recommended)" %>
-                      <%= f.file_field :avatar, { :class => "form-control"} %>
+                      <%= f.file_field :avatar, { :class => "form-control", direct_upload: true} %>
                     </div>
                     <div class="form-group">
                       <%= f.label :video, "Upload a Video (optional)" %>
-                      <%= f.file_field :video, { :class => "form-control"} %>
+                      <%= f.file_field :video, { :class => "form-control", direct_upload: true} %>
                     </div>
                   </div>
                 </div>
