@@ -18,10 +18,16 @@
       <% end -%>
     </div>
     <div class="col-lg-4 mt-5 mt-lg-0 ml-lg-5 ml-0">
-      <h2 class="mb-4">Your Points</h2>
-      <p>You currently have</p>
-      <h2 class="font-weight-bold"><%= @user_points %> points</h2>
-      <%= render partial: 'category_chart' %>
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <h2 class="mb-4">Your Points</h2>
+          <p>You currently have</p>
+          <h2 class="font-weight-bold"><%= @user_points %> points</h2>
+          <div class="position-relative mx-auto" style="height: 200px; width: 200px;">
+            <%= render partial: 'category_chart' %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

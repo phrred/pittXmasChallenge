@@ -1,5 +1,5 @@
 
-<canvas id="categoryChart" width="400" height="200"></canvas>
+<canvas id="categoryChart" width="200" height="200"></canvas>
 
 <script>
 var comparisonChart = new Chart(document.getElementById("categoryChart"), {
@@ -8,17 +8,17 @@ var comparisonChart = new Chart(document.getElementById("categoryChart"), {
       datasets: [{
         data: <%=[@sg_points, @evangelism_points, @ser_points, @eq_points, @thanksgiving_points] %>,
         backgroundColor: [
-            "#191970",
-            "#291970",
-            "#391970",
-            "#491970",
-            "#691970",
+            "#E53D00",
+            "#FFE900",
+            "#E5C2C0",
+            "#21A0A0",
+            "#046865",
           ],
       }],
       labels: ["Spiritual Growth", "Evangelism", "Service/Gratitude", "Equipping", "Thanksgiving Challenge"],
     },
     options: {
-      legend: { display: true },
+      legend: { display: false },
       title: {
         display: true,
         text: "Points Per Category"

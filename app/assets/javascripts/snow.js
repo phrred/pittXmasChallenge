@@ -1,7 +1,12 @@
 $(document).ready(function() {
   var flakes = [],
-    canvas = document.getElementById("canvas"),
-    ctx = canvas.getContext("2d"),
+    canvas = document.getElementById("canvas");
+
+  if (!canvas) {
+    return;
+  }
+  
+  var ctx = canvas.getContext("2d"),
     flakeCount = 400,
     mX = -100,
     mY = -100;
