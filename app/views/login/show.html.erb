@@ -1,9 +1,18 @@
-<div class="Login">
-  <div>
-    <div class="Login_title">
-      Pitt Winter Challenge 2019
+<div class="intro-header intro-header--login">
+  <div class="intro-header__overlay"></div>
+  <canvas id="canvas" class="intro-header__snow"></canvas>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="intro-message mb-5">
+          <div class="intro__makenew">
+            pittsburgh
+          </div>
+          <div class="intro__subtitle">Winter Challenge</div>
+        </div>
+        <%= link_to "Sign in with Gmail", "/auth/google_oauth2", id: "google_sign_in", class: "btn btn-warning mb-3 mb-md-0 mr-md-2" %>
+        <%= link_to "Sign in with Outlook", @microsoft_login_url, id: "microsoft_sign_in", class: "btn btn-warning" %>
+      </div>
     </div>
-    <%= link_to "Sign in with Gmail", "/auth/google_oauth2", id: "google_sign_in", class: "Button Button-light" %>
-    <%= link_to "Sign in with Outlook", @microsoft_login_url, id: "microsoft_sign_in", class: "Button Button-light" %>
-  </div>
+  </div>                
 </div>
