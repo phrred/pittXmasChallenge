@@ -5,9 +5,9 @@
 <%= csrf_meta_tags %>
 
 <div class="container py-5">
-  <h2 class="mb-4">Update Profile</h2>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4">
+      <h2 class="mb-4">Update Profile</h2>
       <%= simple_form_for(@user, url: profile_path, :method => :update) do |f| %>
         <div class="form-group">
           <%= f.input :name, :label => 'Name', input_html: {value: @user_name, class: "form-control"} %>
@@ -23,6 +23,12 @@
         </div>
         <%= f.button :submit,  data: { disable_with: false }, class: 'btn btn-warning' %>
       <% end -%>
+    </div>
+    <div class="col-lg-4 mt-5 mt-lg-0 ml-lg-5 ml-0">
+      <h2 class="mb-4">Your Points</h2>
+      <p>You currently have</p>
+      <h2 class="font-weight-bold">750 points</h2>
+      </div>   
     </div>
   </div>
 </div>

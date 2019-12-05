@@ -185,3 +185,20 @@ p.copyright {
   left: 24px;
   right: 24px;
 }
+
+.points-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background-color: $teal;
+  border-radius: 100%;
+  color: white;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 0;
+    line-height: 1;
+  }
+}
