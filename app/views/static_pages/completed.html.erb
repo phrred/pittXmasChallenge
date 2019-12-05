@@ -33,7 +33,7 @@
               </div>
               <div class="mb-3">
                 <% if comment.avatar.attached? %>
-                  <%=link_to image_tag(comment.avatar.variant(resize: "250x250")), url_for(comment.avatar), :popup=>['original_image', 'height=700,width=900'] %>
+                  <%=link_to image_tag(comment.avatar.variant(resize: "100x100")), url_for(comment.avatar), :popup=>['original_image', 'height=700,width=900'] %>
                 <% end %>
               </div>
               <% if comment.video.attached? %>
