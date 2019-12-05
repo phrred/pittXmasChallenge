@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <h2>Completed Challenges</h2>
-      <p class="mb-5">
+      <p class="my-4">
         <% if @comments.length != 0 %>
           Here are the list of accomplished missions so far. Browse through them to see what others have been up to during break!
         <% else %>
@@ -18,7 +18,7 @@
           <div class="row">
             <div class="col-md-3 mb-4">
               <span class="font-weight-bold"><%= comment.user.name %></span>
-              <span class="badge badge-pill badge-warning"><%= comment.user.campus + " " + (comment.user.staff ? "Staff" : (comment.user.gender ? "Bros" : "Sis")) %></span>
+              <span class="badge badge-pill <%= comment.user.staff ? 'badge-warning' : '' %> <%= !comment.user.staff and comment.user.campus == "CMU" ? 'badge-danger' : '' %> <%= !comment.user.staff and comment.user.campus == "PITT" ? 'badge-primary' : '' %>"><%= comment.user.campus + " " + (comment.user.staff ? "Staff" : (comment.user.gender ? "Bros" : "Sis")) %></span>
               <div class="text-uppercase text-muted mt-1" style="font-size: 12px;"><%= comment.created_at.in_time_zone(-5).to_time.strftime('%B %e at %l:%M %p') %></div>
             </div>
             <div class="col-md-9">
