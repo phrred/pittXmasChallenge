@@ -23,5 +23,84 @@
       <h2 class="font-weight-bold"><%= @user_points %> points</h2>
       <%= render partial: 'category_chart' %>
     </div>
+  <div>
+      <div class="pagination">
+        <%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+      </div>
+      <% @comments.each do |comment| %>
+        <hr>
+        <div class="row">
+          <div class="col-md-3 mb-4">
+            <span class="font-weight-bold"><%= comment.user.name %></span>
+            <span class="badge badge-pill <%= comment.user.staff ? 'badge-warning' : '' %> <%= !comment.user.staff and comment.user.campus == "CMU" ? 'badge-danger' : '' %> <%= !comment.user.staff and comment.user.campus == "PITT" ? 'badge-primary' : '' %>"><%= comment.user.campus + " " + (comment.user.staff ? "Staff" : (comment.user.gender ? "Bros" : "Sis")) %></span>
+            <div class="text-uppercase text-muted mt-1" style="font-size: 12px;"><%= comment.created_at.in_time_zone(-5).to_time.strftime('%B %e at %l:%M %p') %></div>
+          </div>
+          <div class="col-md-9">
+            <div class="mb-3">
+              <span class="font-weight-bold"><%= comment.mission.name %></span>
+              <span class="badge badge-secondary ml-1"><%= comment.mission.points %> points</span>
+            </div>
+            <div class="mb-3">
+              <% if comment.content != nil %>
+                <%= comment.content %>
+              <% end %>
+            </div>
+            <div class="mb-3">
+              <% if comment.avatar.attached? %>
+                <%=link_to image_tag(comment.avatar.variant(resize: "100x100")), url_for(comment.avatar), :popup=>['original_image', 'height=700,width=900'] %>
+              <% end %>
+            </div>
+            <% if comment.video.attached? %>
+              <%=link_to image_tag(comment.video.preview(resize: "100x100")), url_for(comment.video), :popup=>['original_image', 'height=700,width=900'] %>
+            <% end %>
+          </div>
+          <div class="col-md-9">
+            <button type="button" data-toggle="modal" data-target="#editComment-<%=comment.id%>" class="btn btn-warning">edit</button>
+          </div>
+        </div>
+        <div class="modal fade" id="editComment-<%=comment.id%>" tabindex="-1" role="dialog" aria-labelledby="editChallengeTitle" aria-hidden="true">
+        <div class="modal-dialog  modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="editCommentTitle">Edit Challenges</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <%= form_for comment, {:url => update_comment_path, :html => {:role => 'form'}} do |f| %>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <%= render 'shared/error_messages' %>
+                    <div class="form-group">
+                      <%= f.label :content, "Blurb" %>
+                      <%= f.text_area :content, { :class => "form-control", rows: "5", required: true, value: comment.content} %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :avatar, "Upload a Picture (optional, but recommended)" %>
+                      <%= f.file_field :avatar, { :class => "form-control", direct_upload: true } %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :video, "Upload a Video (required)" %>
+                      <%= f.file_field :video, { :class => "form-control", direct_upload: true} %>
+                      <%= hidden_field_tag "comment_id", comment.id %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <%= f.submit "Submit", class: "btn btn-warning" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <hr>
+      <div class="pagination">
+        <%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
