@@ -93,15 +93,15 @@
                       </select>
                     </div>
                     <div class="form-group">
-                      <%= f.label :content, "Blurb" %>
+                      <%= f.label :content, "Blurb (required)" %>
                       <%= f.text_area :content, { :class => "form-control", rows: "5", required: true} %>
                     </div>
                     <div class="form-group">
-                      <%= f.label :avatar, "Upload a Picture (optional, but recommended)" %>
+                      <%= f.label :avatar, "Upload a Picture (recommended)" %>
                       <%= f.file_field :avatar, { :class => "form-control", direct_upload: true} %>
                     </div>
                     <div class="form-group">
-                      <%= f.label :video, "Upload a Video (requi)" %>
+                      <%= f.label :video, "Upload a Video (optional but required for Bible memory challenges)" %>
                       <%= f.file_field :video, { :class => "form-control", direct_upload: true} %>
                     </div>
                   </div>
