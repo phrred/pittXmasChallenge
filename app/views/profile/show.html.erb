@@ -53,11 +53,17 @@
             </div>
             <div class="mb-3">
               <% if comment.avatar.attached? %>
-                <%=link_to image_tag(comment.avatar.variant(resize: "100x100")), url_for(comment.avatar), :popup=>['original_image', 'height=700,width=900'] %>
+                <div class="mb-2 font-weight-bold">
+                  Attached Photo:
+                </div>
+                <%=link_to image_tag(comment.avatar.variant(resize: "250x250")), url_for(comment.avatar), :popup=>['original_image', 'height=700,width=900'] %>
               <% end %>
             </div>
             <% if comment.video.attached? %>
-              <%=link_to image_tag(comment.video.preview(resize: "100x100")), url_for(comment.video), :popup=>['original_image', 'height=700,width=900'] %>
+              <div class="mb-2 font-weight-bold">
+                Attached Video:
+              </div>
+              <%=link_to image_tag(comment.video.preview(resize: "250x250")), url_for(comment.video), :popup=>['original_image', 'height=700,width=900'] %>
             <% end %>
           </div>
           <div class="col-md-2">
