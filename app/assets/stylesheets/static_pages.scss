@@ -179,11 +179,15 @@ p.copyright {
 // <--------------------->
 
 .flash {
-  position: absolute;
+  position: fixed;
   z-index: 100;
-  top: 80px;
-  left: 24px;
-  right: 24px;
+  bottom: 12px;
+  left: 36px;
+  right: 36px;
+
+  .alert {
+    display: inline-block;
+  }
 }
 
 .points-circle {
