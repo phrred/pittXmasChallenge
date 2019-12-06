@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "profile", to: "profile#update"
   post "create_user", to: "profile#create"
   patch "update_comment", to: "comments#update"
+  patch "delete_comment", to: "comments#delete"
 
   resources :comments, only: [:create, :update]
   resources :profile
