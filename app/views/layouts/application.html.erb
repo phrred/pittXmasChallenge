@@ -68,7 +68,7 @@
                     <%= render 'shared/error_messages' %>
                     <div class="form-group">
                       <%= f.label :mission_id, "Challenge" %>
-                      <select class="form-control" name="comment[mission_id]" id="comment_mission_id">
+                      <select class="form-control" name="comment[mission_id]" id="comment_mission_id" required>
                         <option value>Select Challenge</option>
                         <optgroup label="Spiritual Growth">Spiritual Growth
                           <% @sg.each do |mission| %>
