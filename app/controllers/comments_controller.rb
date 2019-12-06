@@ -23,7 +23,14 @@ class CommentsController < ApplicationController
   end
 
   def delete
-    Comment.destroy(params[:comment_id])
+    comment = Comment.find(params[:comment_id])
+    if comment.avatar.attached?
+      comment.avatar.purge_later
+    end
+    if comment.video.attached?
+      comment.video.purge_later
+    end
+    comment.destroy
     redirect_to profile_path
   end
 
