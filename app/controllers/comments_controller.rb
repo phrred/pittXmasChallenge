@@ -13,13 +13,17 @@ class CommentsController < ApplicationController
   end
 
   def update
-    puts "HERE"
     @comment = Comment.find(params[:comment_id])
     if @comment.update(comment_params)
       flash[:success] = "Comment updated!"
     else
       flash[:error] = @comment.errors.full_messages.to_sentence
     end
+    redirect_to profile_path
+  end
+
+  def delete
+    Comment.destroy(params[:comment_id])
     redirect_to profile_path
   end
 
