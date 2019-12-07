@@ -1,3 +1,4 @@
+
 class StaticPagesController < ApplicationController
   def home
     @totalCount = Comment.count
@@ -46,7 +47,7 @@ class StaticPagesController < ApplicationController
     @winner = @points.delete_at(0)
 
     @comment = Comment.new
-    @comments = Comment.page(params[:page]).order('created_at DESC')
+    @comments = Comment.where.not(:mission_id => Mission.where(:name => "Completed Thanksgiving Challenge").first.id).page(params[:page]).order('created_at DESC')
 
     @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
@@ -118,7 +119,7 @@ class StaticPagesController < ApplicationController
 
   def completed
     @comment = Comment.new
-    @comments = Comment.page(params[:page]).order('created_at DESC')
+    @comments = Comment.where.not(:mission_id => Mission.where(:name => "Completed Thanksgiving Challenge").first.id).page(params[:page]).order('created_at DESC')
     @sg = Mission.where(:category_id => Category.where(:mission_type => "Spiritual Growth").first.id)
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
