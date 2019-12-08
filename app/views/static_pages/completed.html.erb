@@ -19,7 +19,7 @@
             <div class="col-md-3 mb-4">
               <span class="font-weight-bold"><%= comment.user.name %></span>
               <span class="badge badge-pill <%= comment.user.staff ? 'badge-warning' : '' %> <%= !comment.user.staff and comment.user.campus == "CMU" ? 'badge-danger' : '' %> <%= !comment.user.staff and comment.user.campus == "PITT" ? 'badge-primary' : '' %>"><%= comment.user.campus + " " + (comment.user.staff ? "Staff" : (comment.user.gender ? "Bros" : "Sis")) %></span>
-              <div class="text-uppercase text-muted mt-1" style="font-size: 12px;"><%= comment.created_at.time.in_time_zone("Eastern Time (US & Canada)").to_time.strftime('%B %e at %l:%M %p') %></div>
+              <div class="text-uppercase text-muted mt-1" style="font-size: 12px;"><%= comment.created_at.in_time_zone("Eastern Time (US & Canada)").to_time.strftime('%B %e at %l:%M %p') %></div>
             </div>
             <div class="col-md-9">
               <div class="mb-3">

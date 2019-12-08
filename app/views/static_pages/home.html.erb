@@ -42,7 +42,7 @@
         <div class="col-lg-4 mb-3">
           <div class="card">
             <div class="card-header text-uppercase" style="font-size: 12px;">
-              <%= comment.created_at.time.in_time_zone("Eastern Time (US & Canada)").to_time.strftime('%B %e at %l:%M %p') %>
+              <%= comment.created_at.time.in_time_zone("Eastern Time (US & Canada)").strftime('%B %e at %l:%M %p') %>
             </div>
             <div class="card-body">
               <span class="font-weight-bold"><%= comment.user.name %></span> recently logged <span class="font-weight-bold"><%= comment.mission.name %></span> and earned <span class="font-weight-bold"><%= comment.mission.points %> points</span> for the <span class="font-weight-bold"><%= comment.user.campus + " " + (comment.user.staff ? "Staff" : (comment.user.gender ? "Bros" : "Sis")) %></span> team!
