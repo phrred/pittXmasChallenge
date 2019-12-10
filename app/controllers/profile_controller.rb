@@ -7,6 +7,11 @@ class ProfileController < ApplicationController
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+    bonus_category = Category.where(:mission_type => "Bonus").first
+    @bonus = []
+    if !bonus_category.nil?
+      @bonus = Mission.where(:category_id => bonus_category.id).first  
+    end
     @user = User.new
     @campus_names = ["CMU", "PITT"]
     @user_name = session[:user_name]
@@ -18,6 +23,12 @@ class ProfileController < ApplicationController
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+    bonus_category = Category.where(:mission_type => "Bonus").first
+    @bonus = []
+    if !bonus_category.nil?
+      @bonus = Mission.where(:category_id => bonus_category.id).first  
+    end
+
     session_email = session[:user_email]
     @user = User.where(email: session_email).take
     @comments = Comment.where(:user => @user).page(params[:page]).order('created_at DESC')
@@ -62,6 +73,12 @@ class ProfileController < ApplicationController
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+    bonus_category = Category.where(:mission_type => "Bonus").first
+    @bonus = []
+    if !bonus_category.nil?
+      @bonus = Mission.where(:category_id => bonus_category.id).first  
+    end
+
     session_email = session[:user_email]
     @user = User.where(email: session_email).take
 
@@ -98,6 +115,12 @@ class ProfileController < ApplicationController
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+    bonus_category = Category.where(:mission_type => "Bonus").first
+    @bonus = []
+    if !bonus_category.nil?
+      @bonus = Mission.where(:category_id => bonus_category.id).first  
+    end
+    
     input =  params[:user]
     campus = input[:campus]
     user_gender = if input[:gender] == "Male" then true else false end

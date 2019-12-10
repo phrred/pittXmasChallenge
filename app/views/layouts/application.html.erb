@@ -79,6 +79,11 @@
                       <%= f.label :mission_id, "Challenge" %>
                       <select class="form-control" name="comment[mission_id]" id="comment_mission_id" required>
                         <option value>Select Challenge</option>
+                        <% if !@bonus.nil? %>
+                          <optgroup label="Bonus Challenge">Bonus Challenge
+                              <option value=<%= @bonus.id %>><%= @bonus.name %> - <%= @bonus.points%> points</option>
+                        <% end %>
+                        </optgroup>
                         <optgroup label="Spiritual Growth">Spiritual Growth
                           <% @sg.each do |mission| %>
                             <option value=<%= mission.id %>><%= mission.name %> - <%= mission.points%> points</option>

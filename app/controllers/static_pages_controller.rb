@@ -53,6 +53,11 @@ class StaticPagesController < ApplicationController
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+    bonus_category = Category.where(:mission_type => "Bonus").first
+    @bonus = nil
+    if !bonus_category.nil?
+      @bonus = Mission.where(:category_id => bonus_category.id).first  
+    end
   end
 
   def challenges
@@ -61,6 +66,11 @@ class StaticPagesController < ApplicationController
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+    bonus_category = Category.where(:mission_type => "Bonus").first
+    @bonus = nil
+    if !bonus_category.nil?
+      @bonus = Mission.where(:category_id => bonus_category.id).first  
+    end
   end
 
   def stats
@@ -124,6 +134,11 @@ class StaticPagesController < ApplicationController
     @evangelism = Mission.where(:category_id => Category.where(:mission_type => "Evangelism").first.id)
     @ser = Mission.where(:category_id => Category.where(:mission_type => "Service/Gratitude").first.id)
     @eq = Mission.where(:category_id => Category.where(:mission_type => "Equipping").first.id)
+    bonus_category = Category.where(:mission_type => "Bonus").first
+    @bonus = nil
+    if !bonus_category.nil?
+      @bonus = Mission.where(:category_id => bonus_category.id).first  
+    end
   end
 
   def powerranking

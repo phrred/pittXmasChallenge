@@ -14,6 +14,7 @@ ev = Category.create!(mission_type: 'Evangelism')
 ser = Category.create!(mission_type: 'Service/Gratitude')
 equ = Category.create!(mission_type: 'Equipping')
 thanksgiving = Category.create!(mission_type: 'Thanksgiving Challenge')
+bonus = Category.create!(mission_type: 'Bonus')
 
 # service/gratitude
 Mission.create!(name: 'Do the dishes for your family (max: 10)', points: 5, category: ser)
