@@ -63,7 +63,7 @@
               <div class="mb-2 font-weight-bold">
                 Attached Video:
               </div>
-              <%=link_to image_tag(comment.video.preview(resize: "250x250", auto_orient: true)), url_for(comment.video), :popup=>['original_image', 'height=700,width=900'] %>
+              <%=link_to image_tag(comment.video.previewable? ? comment.video.preview(resize: "250x250", auto_orient: true) : comment.video), url_for(comment.video), :popup=>['original_image', 'height=700,width=900'] %>
             <% end %>
           </div>
           <div class="col-md-2">
