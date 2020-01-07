@@ -10,7 +10,8 @@ class Comment < ApplicationRecord
     has_one_attached :avatar
     has_one_attached :video
 
-    # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-    # validates_attachment_content_type :video, content_type: /\Avideo\/.*\z/
+    # WIP validation. Need to figure out error handling
+    # validates :avatar, content_type: /\Aimage\/.*\z/
+    # validates :video, content_type: /\Avideo\/.*\z/
 
 end

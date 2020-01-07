@@ -61,6 +61,8 @@ gem 'oauth2'
 gem 'microsoft_graph'
 gem "mini_magick"
 gem 'chart-js-rails'
+gem 'active_storage_validations'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

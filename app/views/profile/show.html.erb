@@ -66,10 +66,10 @@
               <%=link_to image_tag(comment.video.previewable? ? comment.video.preview(resize: "250x250", auto_orient: true) : comment.video), url_for(comment.video), :popup=>['original_image', 'height=700,width=900'] %>
             <% end %>
           </div>
-          <div class="col-md-2">
+          <!-- <div class="col-md-2">
             <button type="button" data-toggle="modal" data-target="#editComment-<%=comment.id%>" class="btn btn-warning">Edit</button>
             <button type="button" data-toggle="modal" data-target="#deleteComment-<%=comment.id%>" class="btn btn-danger ml-1">Delete</button>
-          </div>
+          </div> -->
         </div>
         <div class="modal fade" id="editComment-<%=comment.id%>" tabindex="-1" role="dialog" aria-labelledby="editChallengeTitle" aria-hidden="true">
           <div class="modal-dialog  modal-lg" role="document">
