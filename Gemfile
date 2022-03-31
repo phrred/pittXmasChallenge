@@ -11,7 +11,7 @@ gem 'rails', '~> 5.2'
 gem 'pg'
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
-gem 'puma', '~> 3.8.2'
+gem 'puma', '~> 4.3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
